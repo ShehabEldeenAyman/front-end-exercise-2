@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map with Time Dimension</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.control.min.css" />
+    <style>
+        /* Set the height and width of the map div */
+        #map {
+            height: 100vh; /* Full viewport height */
+            width: 100%; /* Full width of the container */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/iso8601-js-period@0.2.1/iso8601.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leaflet-timedimension@1.1.1/dist/leaflet.timedimension.min.js"></script>
+
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map', {
+            center: [51.505, -0.09],
+            zoom: 15,
+            timeDimension: true,
+            timeDimensionControl: true,
+            timeDimensionOptions: {
+                timeInterval: "P1Y/2024",  // Time interval from 1 year before the current date to 2024
+                period: "P1Y"  // The period for each time step is 1 year
+            },
+            timeDimensionControlOptions: {
+                autoPlay: true,
+                loopButton: true,
+                timeSteps: 1,
+                speedSlider: true,
+                position: 'bottomleft'
+            }
+        });
+
+        // Add the tile layer to the map
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        // Function to load GeoJSON with time dimension
+        function loadGeoJSON() {
+            fetch('Geojsoncoordinates.geojson')
+                .then(response => response.json())
+                .then(data => {
+                    var geojsonLayer = L.geoJSON(data);
+
+                    var timeDimensionLayer = L.timeDimension.layer.geoJson(geojsonLayer, {
+                        updateTimeDimension: true,
+                        addLastPoint: true,
+                        duration: 'P1Y'  // Optional: shows the feature for the duration of 1 year
+                    });
+
+                    timeDimensionLayer.addTo(map);
+                })
+                .catch(error => {
+                    console.error('There was a problem loading the GeoJSON:', error);
+                });
+        }
+
+        // Load GeoJSON data when the page loads
+        window.onload = loadGeoJSON;
+
+        // Popup to show coordinates on map click
+        var popup = L.popup();
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(e.latlng.toString())
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>
