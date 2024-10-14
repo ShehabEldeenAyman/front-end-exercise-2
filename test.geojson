@@ -35,103 +35,18 @@
           }
       },
       {
-          "type": "Feature",
-          "geometry": {
+        "type": "Feature",
+        "geometry": {
             "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T10:15:11.324Z",
-            "time": "2023-01-01T00:00:00Z"
-          }
+            "coordinates": [-0.092754, 51.36007]
         },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T10:25:07.437Z"
-          ,"time": "2020-01-01T00:00:00Z"
-          }
-        },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "time": "2021-01-01T00:00:00Z",
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T10:55:07.137Z"
-          }
-        },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "time": "2022-01-01T00:00:00Z",
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T10:45:10.904Z"
-          }
-        },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "time": "2023-01-01T00:00:00Z",
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T12:00:08.003Z"
-          }
-        },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.14587845,
-              3.796178841
-            ]
-          },
-          "properties": {
-            "time": "2020-01-01T00:00:00Z",
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:vito-iow-kRV5R3WPdCKJEeV6jErWkX/2023-09-11T11:45:13.871Z"
-          }
-        },
-        {
-          "type": "Feature",
-          "geometry": {
-            "type": "Point",
-            "coordinates": [
-              51.144334,
-              2.748482
-            ]
-          },
-          "properties": {
-            "time": "2021-01-01T00:00:00Z",
-            "subject": "urn:ngsi-v2:cot-imec-be:Device:dwg-iow-ElsaYGTuMkYdB1QG6yCJE6/2023-09-12T00:18:29.145Z"
-          }
+        "properties": {
+            "name": "A Sample Point 4",
+            "time": "2022-01-01T00:00:00Z"
         }
-        
+    }
+      
   ]
 }
+
+
